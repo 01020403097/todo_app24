@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_task/style/app_theme.dart';
 import 'package:todo_task/tabs/settings/settings_tab.dart';
@@ -5,10 +6,12 @@ import 'package:todo_task/tabs/tasks/tasks_tab.dart';
 
 import 'home_screen.dart';
 
-void main() {
-  runApp(const MyApp());
+Future <void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  );
+  runApp(MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

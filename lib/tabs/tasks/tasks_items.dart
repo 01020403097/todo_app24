@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/task_model.dart';
 import '../../style/app_theme.dart';
 
 class TasksItems extends StatelessWidget {
-  const TasksItems({super.key});
+   TasksItems(this.task);
+
+  TaskModel task;
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +32,11 @@ class TasksItems extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'play BasketBall',
+                task.title,
                 style: textTheme.titleMedium?.copyWith(color: AppTheme.primary),
               ),
               Text(
-                'this is task description',
+                task.description,
                 style: textTheme.titleSmall,
               ),
             ],
