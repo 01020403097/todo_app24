@@ -6,12 +6,15 @@ import 'package:todo_task/providers/tasks_providers.dart';
 import 'package:todo_task/style/app_theme.dart';
 import 'package:todo_task/tabs/settings/settings_tab.dart';
 import 'package:todo_task/tabs/tasks/tasks_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 import 'home_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  final settingProvider = SettingProvider();
+  await settingProvider.loadPreferences();
   await Firebase.initializeApp();
   runApp(
     MultiProvider(
@@ -19,9 +22,8 @@ Future<void> main() async {
         ChangeNotifierProvider(
           create: (context) => TasksProviders()..getTasks(),
         ),
-        ChangeNotifierProvider<SettingProvider>(
-          create: (context) => SettingProvider(),
-        )
+        ChangeNotifierProvider<SettingProvider>.value(value: settingProvider),
+
       ],
       child: MyApp(),
     ),
@@ -45,6 +47,9 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       theme: AppTheme.lightTheme,
       themeMode: settingProvider.themeMode,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(settingProvider.language),
     );
   }
 }

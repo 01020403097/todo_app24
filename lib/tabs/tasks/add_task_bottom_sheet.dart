@@ -9,6 +9,8 @@ import 'package:todo_task/providers/tasks_providers.dart';
 import 'package:todo_task/style/app_theme.dart';
 import '../../components/widgets/default_elevated_button.dart';
 import '../../components/widgets/default_text_form_field.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class AddTaskBottomSheet extends StatefulWidget {
   const AddTaskBottomSheet({super.key});
@@ -35,7 +37,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         child: Column(
           children: [
             Text(
-              'Add new task',
+                AppLocalizations.of(context)!.addNewTask,
               style: titleMediumStyle
             ),
             SizedBox(
@@ -44,14 +46,14 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             DefaultTextFormField(
               validator: (value) {
             if(value==null || value.trim().isEmpty){
-              return 'title can`t be embty';
+              return AppLocalizations.of(context)!.titleCanNotBeEmpty;
             }else{
               return null;
             }
               },
               maxLines: 1,
               controller: titleTask,
-              hintText: 'Enter task title',
+              hintText: AppLocalizations.of(context)!.enterTaskTitle,
             ),
             SizedBox(
               height: 16,
@@ -59,7 +61,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             DefaultTextFormField(
               validator: (value) {
                 if(value==null || value.trim().isEmpty){
-                  return 'description can`t be embty';
+                  return AppLocalizations.of(context)!.descriptionCanNotBeEmpty;
                 }else{
                   return null;
                 }
@@ -67,10 +69,11 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               },
               maxLines: 3,
               controller: descriptionTask,
-              hintText: 'Enter task description',
+              hintText: AppLocalizations.of(context)!.enterTaskDescription,
             ),
             SizedBox(height: 16),
-            Text('select date',style: titleMediumStyle?.copyWith(
+            Text(AppLocalizations.of(context)!.selectDate
+                ,style: titleMediumStyle?.copyWith(
               fontWeight: FontWeight.w400)),
             SizedBox(height: 16),
             InkWell(
@@ -97,7 +100,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             SizedBox(height: 30,),
         
             DefaultElevatedButton(
-              label: 'Submit',
+              label: AppLocalizations.of(context)!.submit,
               onPressed: () {
                 if(_key.currentState!.validate()){
 
@@ -123,7 +126,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         Navigator.of(context).pop();
         Provider.of<TasksProviders>(context, listen: false).getTasks();
         Fluttertoast.showToast(
-            msg: " the task is adding ",
+            msg: AppLocalizations.of(context)!.theTaskIsAdding,
             toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.CENTER,
             timeInSecForIosWeb: 5,
@@ -133,7 +136,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
         );
       } catch (error) {
         Fluttertoast.showToast(
-            msg: "Error adding task",
+            msg: AppLocalizations.of(context)!.errorAddingTask,
             toastLength: Toast.LENGTH_LONG,
             gravity: ToastGravity.CENTER,
             timeInSecForIosWeb: 5,
@@ -141,7 +144,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
             textColor: AppTheme.white,
             fontSize: 16.0
         );
-        print('Error adding task: $error');
+
       }
     }
 

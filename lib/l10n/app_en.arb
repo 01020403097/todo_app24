@@ -1,0 +1,19 @@
+{
+
+"todoList": "ToDo List",
+"addNewTask": "Add new task",
+"titleCanNotBeEmpty": "title can`t be embty",
+"enterTaskTitle": "Enter task title",
+"descriptionCanNotBeEmpty": "description can`t be embty",
+"enterTaskDescription": "Enter task description",
+"selectDate": "select date",
+"submit": "Submit",
+"theTaskIsAdding": "the task is adding",
+"errorAddingTask": "Error adding task",
+"somethingWentWrong": "something went wrong!",
+"delete": "Delete",
+"language": "Language",
+"mode": "Mode"
+
+
+}

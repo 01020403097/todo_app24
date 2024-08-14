@@ -8,6 +8,8 @@ import 'package:todo_task/providers/tasks_providers.dart';
 
 import '../../models/task_model.dart';
 import '../../style/app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class TasksItems extends StatelessWidget {
   TasksItems(this.task);
@@ -33,14 +35,14 @@ class TasksItems extends StatelessWidget {
                   Provider.of<TasksProviders>(context, listen: false)
                       .getTasks();
                 } catch (e) {
-                  Fluttertoast.showToast(msg: 'something went wrong!');
+                  Fluttertoast.showToast(msg: AppLocalizations.of(context)!.somethingWentWrong);
                   print(e);
                 }
               },
               backgroundColor: Color(0xFFFE4A49),
               foregroundColor: Colors.white,
               icon: Icons.delete,
-              label: 'Delete',
+              label: AppLocalizations.of(context)!.delete,
             ),
           ],
         ),

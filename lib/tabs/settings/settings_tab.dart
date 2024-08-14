@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:todo_task/style/app_theme.dart';
 
 import '../../providers/setting_prov.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SettingsTab extends StatelessWidget {
   static const String routeName = 'settingsTab';
@@ -22,7 +24,7 @@ class SettingsTab extends StatelessWidget {
             padding: EdgeInsetsDirectional.only(
                 start: MediaQuery.sizeOf(context).width * 0.05),
             child: Text(
-              'Language',
+              AppLocalizations.of(context)!.language,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
@@ -66,7 +68,7 @@ class SettingsTab extends StatelessWidget {
             padding: EdgeInsetsDirectional.only(
                 start: MediaQuery.sizeOf(context).width * 0.05),
             child: Text(
-              'Mode',
+              AppLocalizations.of(context)!.mode,
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),

@@ -1,0 +1,20 @@
+{
+
+  "todoList": "قائمة تودو",
+  "addNewTask": "إضافة مهمة جديدة ",
+  "titleCanNotBeEmpty": "لا يمكن أن يكون العنوان فارغًا",
+  "enterTaskTitle": "أدخل عنوان المهمة",
+  "descriptionCanNotBeEmpty": "لا يمكن أن يكون الوصف فارغًا",
+  "enterTaskDescription": "أدخل وصف المهمه",
+  "selectDate": "حدد التاريخ",
+  "submit": "عرض المهمه",
+  "theTaskIsAdding": "أضافة المهمه بنجاح",
+  "errorAddingTask": "خطأ في الأضافه",
+  "somethingWentWrong": "حدث خطأ ما !",
+  "delete": "حذف",
+  "language": "اللغات",
+  "mode": "الوضع "
+
+
+
+}

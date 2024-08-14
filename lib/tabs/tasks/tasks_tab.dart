@@ -1,10 +1,10 @@
 import 'package:easy_date_timeline/easy_date_timeline.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_task/providers/tasks_providers.dart';
 import 'package:todo_task/style/app_theme.dart';
 import 'package:todo_task/tabs/tasks/tasks_items.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TasksTab extends StatelessWidget {
   static const String routeName = 'tasksTab';
@@ -26,7 +26,7 @@ class TasksTab extends StatelessWidget {
             PositionedDirectional(
               start:20 ,
               top: 40,
-              child: Text('ToDo List',
+              child: Text(AppLocalizations.of(context)!.todoList,
               style: Theme.of(context).textTheme.titleMedium?.copyWith(fontSize: 20,color: AppTheme.white),
               ),
             ),
