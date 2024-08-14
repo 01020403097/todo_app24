@@ -1,6 +1,12 @@
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_task/data/firebase_functions.dart';
+import 'package:todo_task/models/task_model.dart';
+import 'package:todo_task/providers/tasks_providers.dart';
+import 'package:todo_task/style/app_theme.dart';
 import '../../components/widgets/default_elevated_button.dart';
 import '../../components/widgets/default_text_form_field.dart';
 
@@ -94,6 +100,7 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
               label: 'Submit',
               onPressed: () {
                 if(_key.currentState!.validate()){
+
                   addTask();
                 }
 
@@ -105,5 +112,38 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
       ),
     );
   }
-  void addTask(){}
+  void addTask() async {
+
+      try {
+        await FirebaseFunctions.addTaskToFireStore(TaskModel(
+          title: titleTask.text,
+          description: descriptionTask.text,
+          date: selectedDate,
+        ));
+        Navigator.of(context).pop();
+        Provider.of<TasksProviders>(context, listen: false).getTasks();
+        Fluttertoast.showToast(
+            msg: " the task is adding ",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 5,
+            backgroundColor: AppTheme.green,
+            textColor: AppTheme.white,
+            fontSize: 16.0
+        );
+      } catch (error) {
+        Fluttertoast.showToast(
+            msg: "Error adding task",
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 5,
+            backgroundColor: Colors.red,
+            textColor: AppTheme.white,
+            fontSize: 16.0
+        );
+        print('Error adding task: $error');
+      }
+    }
+
+
 }

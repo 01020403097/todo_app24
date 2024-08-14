@@ -13,7 +13,9 @@ class DefaultTextFormField extends StatelessWidget {
       controller: controller,
       validator: validator,
 
-      decoration: InputDecoration(hintText: hintText),
+      decoration: InputDecoration(hintText: hintText,
+      hintStyle: Theme.of(context).textTheme.titleSmall,
+      ),
       maxLines: maxLines,
 
 

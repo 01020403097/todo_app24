@@ -21,7 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          showModalBottomSheet(context: context, builder: (context) =>AddTaskBottomSheet(),);
+          showModalBottomSheet(
+            backgroundColor: Theme.of(context).bottomSheetTheme.backgroundColor,
+            context: context, builder: (context) =>AddTaskBottomSheet(),);
         },
         child: const Icon(
           Icons.add,
