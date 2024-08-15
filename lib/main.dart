@@ -7,8 +7,6 @@ import 'package:todo_task/style/app_theme.dart';
 import 'package:todo_task/tabs/settings/settings_tab.dart';
 import 'package:todo_task/tabs/tasks/tasks_tab.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-
 import 'home_screen.dart';
 
 Future<void> main() async {
@@ -23,9 +21,8 @@ Future<void> main() async {
           create: (context) => TasksProviders()..getTasks(),
         ),
         ChangeNotifierProvider<SettingProvider>.value(value: settingProvider),
-
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }

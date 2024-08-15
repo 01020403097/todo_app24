@@ -5,6 +5,7 @@ import '../models/task_model.dart';
 
 class TasksProviders with ChangeNotifier {
   List<TaskModel> tasks = [];
+  List<TaskModel> updateTasks = [];
   DateTime selectedDate = DateTime.now();
 
   Future<void> getTasks() async {
@@ -19,8 +20,20 @@ class TasksProviders with ChangeNotifier {
     notifyListeners();
   }
 
+
   void changeSelectedDate(DateTime date) {
     selectedDate = date;
     notifyListeners();
   }
+
+  Future<void> updateTasks1(TaskModel task) async {
+    try {
+      await FirebaseFunctions.updateTask(task);
+      notifyListeners();
+    } catch (e) {
+      print('Error in updateTasks1: $e');
+    }
+  }
+
+
 }

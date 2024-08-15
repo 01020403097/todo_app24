@@ -13,7 +13,14 @@
   "somethingWentWrong": "حدث خطأ ما !",
   "delete": "حذف",
   "language": "اللغات",
-  "mode": "الوضع "
+  "mode": "الوضع ",
+  "settings": "الأعدادات",
+  "edit": "تعديل",
+  "editTask": "تعديل المهمه",
+  "thisIsTitle": "العنوان الجديد",
+  "taskDetails": "تفاصيل المهمه",
+  "saveChanges": "حفظ التغيرات"
+
 
 
 

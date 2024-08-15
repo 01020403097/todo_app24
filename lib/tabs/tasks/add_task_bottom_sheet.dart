@@ -29,10 +29,12 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   @override
   Widget build(BuildContext context) {
     TextStyle? titleMediumStyle=Theme.of(context).textTheme.titleMedium;
-    return Container(
+    return
+      Container(
       height: MediaQuery.sizeOf(context).height * 0.55,
       padding: EdgeInsetsDirectional.all(20),
-      child: Form(
+      child:
+      Form(
         key: _key,
         child: Column(
           children: [

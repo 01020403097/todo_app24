@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           showModalBottomSheet(
             backgroundColor: Theme.of(context).bottomSheetTheme.backgroundColor,
-            context: context, builder: (context) =>AddTaskBottomSheet(),);
+            context: context, builder: (context) =>const AddTaskBottomSheet(),);
         },
         child: const Icon(
           Icons.add,

@@ -13,7 +13,14 @@
 "somethingWentWrong": "something went wrong!",
 "delete": "Delete",
 "language": "Language",
-"mode": "Mode"
+"mode": "Mode",
+"settings": "Settings",
+"edit": "Edit",
+"editTask": "Edit Task",
+"thisIsTitle": "This is title",
+"taskDetails": "Task details",
+"saveChanges": "Save Changes"
+
 
 
 }

@@ -1,14 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_task/data/firebase_functions.dart';
 import 'package:todo_task/providers/tasks_providers.dart';
-
 import '../../models/task_model.dart';
 import '../../style/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'edit_tasks.dart';
 
 
 class TasksItems extends StatelessWidget {
@@ -25,7 +25,7 @@ class TasksItems extends StatelessWidget {
       child: Slidable(
         key: const ValueKey(0),
         startActionPane: ActionPane(
-          motion: const ScrollMotion(),
+          motion:  ScrollMotion(),
           children: [
             SlidableAction(
               borderRadius: BorderRadius.circular(15),
@@ -43,6 +43,27 @@ class TasksItems extends StatelessWidget {
               foregroundColor: Colors.white,
               icon: Icons.delete,
               label: AppLocalizations.of(context)!.delete,
+            ),
+            SlidableAction(
+              borderRadius: BorderRadius.circular(15),
+              onPressed: (context) {
+
+                try {
+
+                 showDialog (
+
+                    context: context, builder: (context) => EditTasks(task),);
+                 Provider.of<TasksProviders>(context,listen: false).updateTasks1(task);
+           
+                } catch (e) {
+                  Fluttertoast.showToast(msg: AppLocalizations.of(context)!.somethingWentWrong);
+                  print(e);
+                }
+              },
+              backgroundColor:AppTheme.green,
+              foregroundColor: Colors.white,
+              icon: Icons.edit,
+              label: AppLocalizations.of(context)!.edit,
             ),
           ],
         ),

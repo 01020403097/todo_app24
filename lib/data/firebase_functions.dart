@@ -37,11 +37,24 @@ static Future<List<TaskModel>>getAllTasksFromFireStore()async{
 
   }
 
-// static Future<void> updateTskFromFireStore(String taskId){
-//  CollectionReference<TaskModel> tasksCollection=getTasksCollection();
-//  return tasksCollection.doc(taskId).update(data);
-//
-//
-//
-// }
+static Future<void> updateTask(TaskModel task) async {
+  if (task.id == null || task.id!.isEmpty) {
+    throw ArgumentError('Task ID must be provided for update.');
+  }
+
+  CollectionReference<TaskModel> tasksCollection = getTasksCollection();
+
+  try {
+    print('Updating task with ID: ${task.id}');
+    await tasksCollection.doc(task.id).update(task.toJson());
+  } catch (e) {
+    print('Error updating task: $e');
+  }
+}
+
+
+
+
+
+
 }
