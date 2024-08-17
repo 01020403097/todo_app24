@@ -49,6 +49,9 @@ class _EditTasksState extends State<EditTasks> {
   @override
   Widget build(BuildContext context) {
     final TextStyle? titleMediumStyle = Theme.of(context).textTheme.titleMedium;
+    double screenHeight = MediaQuery.sizeOf(context).height;
+    double wides=MediaQuery.sizeOf(context).width;
+
 
     return Scaffold(
       appBar: AppBar(
@@ -57,11 +60,11 @@ class _EditTasksState extends State<EditTasks> {
           style: titleMediumStyle!.copyWith(color: AppTheme.white),
         ),
         flexibleSpace: Container(),
-        toolbarHeight: 150,
+        toolbarHeight: screenHeight*0.18,
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding:  EdgeInsets.symmetric(horizontal: wides*0.05),
           child: SingleChildScrollView(
             child: Container(
               decoration: BoxDecoration(
@@ -75,13 +78,13 @@ class _EditTasksState extends State<EditTasks> {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        padding:  EdgeInsets.symmetric(vertical: screenHeight*0.015),
                         child: Text(
                           AppLocalizations.of(context)!.editTask,
                           style: titleMediumStyle,
                         ),
                       ),
-                      const SizedBox(height: 16),
+                       SizedBox(height: screenHeight*0.017),
                       DefaultTextFormField(
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
@@ -94,7 +97,7 @@ class _EditTasksState extends State<EditTasks> {
                         controller: titleEditTask,
                         hintText: AppLocalizations.of(context)!.thisIsTitle,
                       ),
-                      const SizedBox(height: 16),
+                       SizedBox(height: screenHeight*0.018),
                       DefaultTextFormField(
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
@@ -139,7 +142,7 @@ class _EditTasksState extends State<EditTasks> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 30),
+                       SizedBox(height: screenHeight*0.032),
                       DefaultElevatedButton(
                         label: AppLocalizations.of(context)!.saveChanges,
                         onPressed: () async {

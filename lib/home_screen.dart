@@ -18,35 +18,36 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double height=MediaQuery.sizeOf(context).height;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
             backgroundColor: Theme.of(context).bottomSheetTheme.backgroundColor,
-            context: context, builder: (context) =>const AddTaskBottomSheet(),);
+            context: context, builder: (context) => AddTaskBottomSheet(),);
         },
-        child: const Icon(
+        child:  Icon(
           Icons.add,
-          size: 32,
+          size: height*0.032,
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: tabs[currentTabIndex],
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 10,
+        shape:  CircularNotchedRectangle(),
+        notchMargin: height*0.01,
         padding: EdgeInsets.zero,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: BottomNavigationBar(
-          items: const [
+          items:  [
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.list,
-                  size: 32,
+                  size: height*0.036,
                 ),
                 label: 'Tasks'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings_outlined, size: 32),
+                icon: Icon(Icons.settings_outlined, size: height*0.036),
                 label: 'Settings'),
           ],
           currentIndex: currentTabIndex,

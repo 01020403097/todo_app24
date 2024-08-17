@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_task/models/task_model.dart';
 
 class FirebaseFunctions{
@@ -57,4 +58,15 @@ static Future<void> updateTask(TaskModel task) async {
 
 
 
+}
+class TaskPreferences {
+  static Future<void> saveTaskStatus(String taskId, bool isDone) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(taskId, isDone);
+  }
+
+  static Future<bool> getTaskStatus(String taskId) async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(taskId) ?? false;
+  }
 }

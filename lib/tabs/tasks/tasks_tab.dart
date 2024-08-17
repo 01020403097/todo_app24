@@ -26,6 +26,7 @@ super.initState();
   Widget build(BuildContext context) {
     TasksProviders tasksProviders = Provider.of<TasksProviders>(context);
     double screenHeight = MediaQuery.sizeOf(context).height;
+    double wides=MediaQuery.sizeOf(context).width;
     return
       Scaffold(
 
@@ -40,12 +41,12 @@ super.initState();
               color: Theme.of(context).primaryColor,
             ),
             PositionedDirectional(
-              start: 20,
-              top: 40,
+              start: screenHeight*0.02,
+              top: screenHeight*0.04,
               child: Text(
                 AppLocalizations.of(context)!.todoList,
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontSize: 20,
+                  fontSize: screenHeight*0.025,
                   color: AppTheme.white,
                 ),
               ),
@@ -67,8 +68,8 @@ super.initState();
                 },
                 activeColor: Theme.of(context).datePickerTheme.backgroundColor,
                 dayProps: EasyDayProps(
-                  height: 90,
-                  width: 60,
+                  height: screenHeight*0.11,
+                  width: wides*0.15,
                   activeDayStyle: DayStyle(
                     decoration: BoxDecoration(
                       color: Theme.of(context).datePickerTheme.backgroundColor,

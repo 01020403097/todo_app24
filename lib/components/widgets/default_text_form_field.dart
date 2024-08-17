@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_task/style/app_theme.dart';
 
 class DefaultTextFormField extends StatelessWidget {
   TextEditingController? controller;
@@ -17,6 +18,7 @@ class DefaultTextFormField extends StatelessWidget {
       hintStyle: Theme.of(context).textTheme.titleSmall,
       ),
       maxLines: maxLines,
+      style: TextStyle(color: AppTheme.primary),
 
 
 
